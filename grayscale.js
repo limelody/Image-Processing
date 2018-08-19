@@ -1,7 +1,7 @@
 var img = new Image();
 img.src = 'assets/rnm.png';
 img.onload = function() {
-  gray(this);
+    gray(this);
 };
 
 function gray(img) {
