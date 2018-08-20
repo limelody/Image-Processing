@@ -3,7 +3,8 @@
 ## Current Algorithms
 * Identifying RGB values
 * Grayscale
-* Gaussian Blur (in progress)
+* Gaussian Blur
 
 ## Coming Soon:
+* Edge Identification
 * Demosaic
