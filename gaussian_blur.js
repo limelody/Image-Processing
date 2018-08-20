@@ -17,18 +17,20 @@ function blur(img) {
     var data = imageData.data;
     var dst_data = []; 
     
-    //easy access to pixels in 3x3 matrix
+    //easy access to pixels in 3x3 matrix surrounding the designated pixel
     function POS(i, x, y) {
         return i + 4 * (x + canvas.width * y);
-    };
+    }
 
+    //returns new pixel value
     function DST_PIXEL(i) {
         return KERNEL[0] * data[POS(i, -1, -1)] + KERNEL[1] * data[POS(i, 0, -1)] + KERNEL[2] * data[POS(i, 1, -1)] +
         KERNEL[3] * data[POS(i, -1,  0)] + KERNEL[4] * data[POS(i, 0,  0)] + KERNEL[5] * data[POS(i, 1,  0)] +
         KERNEL[6] * data[POS(i, -1,  1)] + KERNEL[7] * data[POS(i, 0,  1)] + KERNEL[8] * data[POS(i, 1,  1)];
-    };
+    }
 
     var gaussian = function() {
+        
         for (var i = 0; i < data.length; i += 4) {
             //border condition
             if ((i/4) % canvas.width < 1 || (i/4) % canvas.width > canvas.width - 2 || 
