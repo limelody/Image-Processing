@@ -17,6 +17,7 @@ function scanit(img) {
     var data = imageData.data;
     
     var scanning = function() {
+        //grayscale
         for (var i = 0; i < data.length; i += 4) {
             var avg = (data[i] + data[i+1] + data[i+2]) / 3;
             data[i] = avg;
@@ -24,19 +25,20 @@ function scanit(img) {
             data[i+2] = avg;
         }
 
+        //Current boundaries are arbitrarily determined. Experiment with values to find optimal snapping points.
         for (var i = 0; i < data.length; i += 4) {
             if (data[i] <= 160) {
                 data[i] = 0; 
                 data[i+1] = 0;
                 data[i+2] = 0;
-            }
+            } //black
             else if (data[i] > 160 && data[i] <= 200)
-            {}
+            {} //keep the same
             else {
                 data[i] = 255; 
                 data[i+1] = 255; 
                 data[i+2] = 255;  
-            }
+            } //white
         } 
         ctx.putImageData(imageData, 0, 0);
     };
