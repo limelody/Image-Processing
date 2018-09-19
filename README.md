@@ -4,7 +4,8 @@
 * Identifying RGB values
 * Grayscale
 * Gaussian Blur
+* Scanner
 
 ## Coming Soon:
-* Edge Identification
+* Edge Detection
 * Demosaic
